@@ -3,6 +3,7 @@ package com.example.local_authorization;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login;
-//    private TextView loginLocked;
-//    private TextView attempts;
+    private TextView loginLocked;
+    private TextView attempts;
     private TextView numberOfAttempts;
     // Число для подсчета попыток залогиниться:
     int numberOfRemainingLoginAttempts = 3;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             // Выполняем переход на другой экран:
             Intent intent = new Intent(MainActivity.this,Second.class);
             startActivity(intent);
+            finish();
         }
         // В другом случае выдаем сообщение с ошибкой:
         else {
@@ -56,4 +58,15 @@ public class MainActivity extends AppCompatActivity {
             attempts.setVisibility(View.VISIBLE);
             numberOfAttempts.setVisibility(View.VISIBLE);
             numberOfAttempts.setText(Integer.toString(numberOfRemainingLoginAttempts));
+            // Когда выполнено 3 безуспешных попытки залогиниться,
+            // делаем видимым текстовое поле с надписью, что все пропало и выставляем
+            // кнопке настройку невозможности нажатия setEnabled(false):
+            if (numberOfRemainingLoginAttempts == 0) {
+                login.setEnabled(false);
+                loginLocked.setVisibility(View.VISIBLE);
+                loginLocked.setBackgroundColor(Color.RED);
+                loginLocked.setText("Вход заблокирован!!!");
+            }
+        }
+    }
 }
