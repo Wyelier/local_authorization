@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
             // Выполняем переход на другой экран:
             Intent intent = new Intent(MainActivity.this,Second.class);
             startActivity(intent);
-            finish();
+            username.setText("");
+            password.setText("");
         }
         else if (username.length() > 0 && password.length() == 0 ) {
             Toast.makeText(getApplicationContext(), "Введите пароль.",Toast.LENGTH_SHORT).show();
