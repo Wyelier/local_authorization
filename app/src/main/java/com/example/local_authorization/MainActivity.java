@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        else if (username.length() > 0 && password.length() == 0 ) {
+            Toast.makeText(getApplicationContext(), "Введите пароль.",Toast.LENGTH_SHORT).show();
+        }
+        else if (username.length() == 0 && password.length() > 0) {
+            Toast.makeText(getApplicationContext(), "Введите логин.",Toast.LENGTH_SHORT).show();
+        }
         // В другом случае выдаем сообщение с ошибкой:
         else {
             Toast.makeText(getApplicationContext(), "Неправильные данные!",Toast.LENGTH_SHORT).show();

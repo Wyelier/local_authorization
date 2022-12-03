@@ -14,4 +14,19 @@
         android:layout_gravity="center"
         android:textSize="12pt"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Слепцов Игорь ИСИП 20/1"
+        android:layout_marginTop="20dp"
+        android:padding="5pt"
+        android:layout_gravity="center"
+        android:textSize="10pt"/>
+
+    <ImageView
+        android:layout_width="291dp"
+        android:layout_height="331dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/me" />
+
 </LinearLayout>
